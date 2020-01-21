@@ -2,15 +2,9 @@ const express = require('express');
 
 const asyncHandler = require("express-async-handler")
 
-const knex = require('knex');
+const db = require("../data/dbConfig");
 
-const db = knex({
-  client: 'sqlite3',
-  connection: {
-    filename: './data/.db3'
-  },
-  useNullAsDefault: true
-});
+
 
 const router = express.Router();
 
@@ -36,10 +30,10 @@ router.get("/", asyncHandler(async (req, res, next) => {
 router.post("/", asyncHandler(async(req, res, next) => {
     const payload = {
         VIN: req.body.vin,
-        Make: req.body.make,
-        Model: req.body.model,
-        Mileage: req.body.mileage,
-        Title: req.body.title,
+        make: req.body.make,
+        model: req.body.model,
+        mileage: req.body.mileage,
+        title: req.body.title,
     }
     const [id] = await db("cars").insert(payload)
     res.json(await db("cars").where("id", id).first())

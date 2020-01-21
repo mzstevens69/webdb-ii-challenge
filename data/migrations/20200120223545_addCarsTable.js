@@ -5,23 +5,22 @@ exports.up = function(knex) {
     tbl.increments('id');
 
 
-    tbl.integer('VIN', 128)
-        .notNullable()
-        .unique()
-        .index()
+    tbl.integer('VIN', 128)       
+        .unique();
+        
 
     tbl.string('make', 128)
-        .notNullable()
-        index()
+        .notNullable();
+        
 
     tbl.string('model', 128)
-        .notNullable()
-        .index()
+        .notNullable();
+        
 
     tbl.integer('mileage', 128)
-        .notNullable()
+        .notNullable();
 
-    tbl.string('title status', 128)
+    tbl.string('title ', 128)
         
     
 
