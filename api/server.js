@@ -6,6 +6,6 @@ const server = express();
 
 server.use(express.json());
 
-server.use('/api/cars', carsRouter)
+server.use('/cars', carsRouter)
 
 module.exports = server;
